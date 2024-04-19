@@ -39,7 +39,18 @@ function Steps() {
             <div className={step >= 3 ? "active" : ""}>3</div>
           </div>
 
-          <p className="message">Step: {messages[step - 1]}</p>
+          <StepMessage step={step}>
+            {messages[step - 1]}
+            <div className="buttons">
+              <Button
+                bgColor="#e7e7e7"
+                color="#333"
+                onClick={() => alert(`Learn how to ${messages[step - 1]}`)}
+              >
+                Learn how
+              </Button>
+            </div>
+          </StepMessage>
 
           <div className="buttons">
             <Button bgColor="#7950f2" color="#fff" onClick={handlePrevious}>
@@ -53,7 +64,14 @@ function Steps() {
       )}
     </>
   );
-  90;
+}
+
+function StepMessage({ step, children }) {
+  return (
+    <div className="message">
+      <h3>Step {step}</h3> {children}
+    </div>
+  );
 }
 
 function Button({ bgColor, color, onClick, children }) {
