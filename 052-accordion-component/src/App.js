@@ -33,15 +33,16 @@ function Accordion({ data }) {
           onOpen={setCurrentOpen}
           number={i}
           title={el.title}
-          text={el.text}
           key={el.title}
-        />
+        >
+          {el.text}
+        </AccordionItem>
       ))}
     </div>
   );
 }
 
-function AccordionItem({ number, title, text, currentOpen, onOpen }) {
+function AccordionItem({ number, title, currentOpen, onOpen, children }) {
   const isOpen = currentOpen === number;
 
   function handleToggle() {
@@ -54,7 +55,7 @@ function AccordionItem({ number, title, text, currentOpen, onOpen }) {
       <p className="title">{title}</p>
       <p classname="icon">{isOpen ? "-" : "+"}</p>
 
-      {isOpen && <div className="content-box">{text}</div>}
+      {isOpen && <div className="content-box">{children}</div>}
     </div>
   );
 }
