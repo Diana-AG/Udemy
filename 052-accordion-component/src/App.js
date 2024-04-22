@@ -38,6 +38,20 @@ function Accordion({ data }) {
           {el.text}
         </AccordionItem>
       ))}
+      <AccordionItem
+        currentOpen={currentOpen}
+        onOpen={setCurrentOpen}
+        number={23}
+        title="Test 1"
+        key="test 1"
+      >
+        <p>Allows React developers to:</p>
+        <ul>
+          <li>Break up UI into components</li>
+          <li>Make components reusuable</li>
+          <li>Place state efficiently</li>
+        </ul>
+      </AccordionItem>
     </div>
   );
 }
